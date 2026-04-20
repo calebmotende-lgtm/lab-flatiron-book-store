@@ -44,47 +44,33 @@ const bookStore = {
 }
 
 // Write your code here!
-// --- 2. Update Existing Element ---
-
-// Select the DOM element with the id of 'header' 
+// Check if data is loading
+// Task 2: Update the Header
 const bookstoreTitle = document.querySelector('#header');
-
-// Change the textContent to the name property of the bookstore object
 bookstoreTitle.textContent = bookstore.name;
 
-
-// --- 3. Create New Element ---
-
-// Select the element with id of 'book-list'
+// Task 3: Render the Books
 const bookList = document.querySelector('#book-list');
 
-// Loop through every book in the bookstore.books array
+// We loop through the data that lives in the other file
 bookstore.books.forEach(book => {
-    
-    // Create the required elements
     const bookContainer = document.createElement('li');
     const bookTitle = document.createElement('h3');
     const bookAuthor = document.createElement('p');
     const bookImage = document.createElement('img');
 
-    // Set the content to match the book object
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
     bookImage.src = book.image;
-    bookImage.alt = book.title;
+    bookImage.style.width = "150px"; 
 
-    // Append elements to bookContainer
     bookContainer.append(bookTitle, bookAuthor, bookImage);
-
-    // Append bookContainer to the bookList
     bookList.appendChild(bookContainer);
 });
 
-
-// --- 4. BONUS CHALLENGE: Delete Element ---
-
-// Delete the element with id of 'delete-this' from the DOM
-const deleteMe = document.querySelector('#delete-this');
-if (deleteMe) {
-    deleteMe.remove();
+// Task 4: Bonus Challenge (From your video instructions)
+// Delete the element with id 'delete-this'
+const extraElement = document.querySelector('#delete-this');
+if (extraElement) {
+    extraElement.remove();
 }
