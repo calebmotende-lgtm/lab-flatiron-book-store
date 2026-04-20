@@ -44,33 +44,57 @@ const bookStore = {
 }
 
 // Write your code here!
-// Check if data is loading
-// Task 2: Update the Header
+// --- TASK 1: THE DATA ---
+// Since there is no data.js, we define the bookstore object here.
+const bookstore = {
+    name: "Flatiron Bookstore",
+    books: [
+        {
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            image: "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+        },
+        {
+            title: "1984",
+            author: "George Orwell",
+            image: "https://covers.openlibrary.org/b/id/11181283-L.jpg"
+        },
+        {
+            title: "To Kill a Mockingbird",
+            author: "Harper Lee",
+            image: "https://covers.openlibrary.org/b/id/8225266-L.jpg"
+        }
+    ]
+};
+
+// --- TASK 2: Update the Header ---
 const bookstoreTitle = document.querySelector('#header');
 bookstoreTitle.textContent = bookstore.name;
 
-// Task 3: Render the Books
+// --- TASK 3: Render the Books ---
 const bookList = document.querySelector('#book-list');
 
-// We loop through the data that lives in the other file
 bookstore.books.forEach(book => {
+    // 1. Create elements
     const bookContainer = document.createElement('li');
     const bookTitle = document.createElement('h3');
     const bookAuthor = document.createElement('p');
     const bookImage = document.createElement('img');
 
+    // 2. Set content
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
     bookImage.src = book.image;
-    bookImage.style.width = "150px"; 
+    bookImage.style.width = "150px"; // Keeps images a reasonable size
 
+    // 3. Append to list
     bookContainer.append(bookTitle, bookAuthor, bookImage);
     bookList.appendChild(bookContainer);
 });
 
-// Task 4: Bonus Challenge (From your video instructions)
-// Delete the element with id 'delete-this'
-const extraElement = document.querySelector('#delete-this');
-if (extraElement) {
-    extraElement.remove();
+// --- BONUS CHALLENGE: Delete Element ---
+// This removes the "delete-this" placeholder from your HTML
+const deleteMe = document.querySelector('#delete-this');
+if (deleteMe) {
+    deleteMe.remove();
 }
