@@ -44,32 +44,47 @@ const bookStore = {
 }
 
 // Write your code here!
-// Task 2: Manipulating Existing Elements
-// 1. Select the Title Element
+// --- 2. Update Existing Element ---
+
+// Select the DOM element with the id of 'header' 
 const bookstoreTitle = document.querySelector('#header');
 
-// 2. Change element to match bookstore name
-// Note: Assuming 'bookstore' object exists in your data or global scope
+// Change the textContent to the name property of the bookstore object
 bookstoreTitle.textContent = bookstore.name;
 
-// Task 3: Book Elements
+
+// --- 3. Create New Element ---
+
+// Select the element with id of 'book-list'
 const bookList = document.querySelector('#book-list');
 
+// Loop through every book in the bookstore.books array
 bookstore.books.forEach(book => {
-    // 1. Create elements for each book
+    
+    // Create the required elements
     const bookContainer = document.createElement('li');
     const bookTitle = document.createElement('h3');
     const bookAuthor = document.createElement('p');
     const bookImage = document.createElement('img');
 
-    // 2. Change textContent/src to match book object
+    // Set the content to match the book object
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
     bookImage.src = book.image;
+    bookImage.alt = book.title;
 
-    // 3. Append book elements to bookContainer
+    // Append elements to bookContainer
     bookContainer.append(bookTitle, bookAuthor, bookImage);
 
-    // Append bookContainer to bookList
+    // Append bookContainer to the bookList
     bookList.appendChild(bookContainer);
 });
+
+
+// --- 4. BONUS CHALLENGE: Delete Element ---
+
+// Delete the element with id of 'delete-this' from the DOM
+const deleteMe = document.querySelector('#delete-this');
+if (deleteMe) {
+    deleteMe.remove();
+}
