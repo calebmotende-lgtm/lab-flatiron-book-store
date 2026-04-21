@@ -41,31 +41,10 @@ const bookStore = {
             
         }
     ]
-}
+};
 
 // Write your code here!
-// --- TASK 1: THE DATA ---
-// Since there is no data.js, we define the bookstore object here.
-const bookstore = {
-    name: "Flatiron Bookstore",
-    books: [
-        {
-            title: "The Great Gatsby",
-            author: "F. Scott Fitzgerald",
-            image: "https://covers.openlibrary.org/b/id/7222246-L.jpg"
-        },
-        {
-            title: "1984",
-            author: "George Orwell",
-            image: "https://covers.openlibrary.org/b/id/11181283-L.jpg"
-        },
-        {
-            title: "To Kill a Mockingbird",
-            author: "Harper Lee",
-            image: "https://covers.openlibrary.org/b/id/8225266-L.jpg"
-        }
-    ]
-};
+
 
 // --- TASK 2: Update the Header ---
 const bookstoreTitle = document.querySelector('#header');
@@ -84,8 +63,8 @@ bookstore.books.forEach(book => {
     // 2. Set content
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
-    bookImage.src = book.image;
-    bookImage.style.width = "150px"; // Keeps images a reasonable size
+    bookImage.src = book.imageUrl;
+    bookImage.alt = book.title;
 
     // 3. Append to list
     bookContainer.append(bookTitle, bookAuthor, bookImage);
